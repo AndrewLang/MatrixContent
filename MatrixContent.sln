@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{57DD1501-16CF-4E76-AC91-DB8238656F86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FBB2EF3D-7B67-4104-9340-81B03C69D576}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent", "src\MatrixContent\MatrixContent.xproj", "{0E4961B2-C8D4-44A5-A458-18A833FFA613}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1381DA0B-72D6-46E2-8BC0-6A3DF7436692}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent.Framework", "src\MatrixContent.Framework\MatrixContent.Framework.xproj", "{C32AAB54-223A-4509-AA1C-415C7CA43D24}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent.Blog", "src\MatrixContent\Areas\MatrixContent.Blog\MatrixContent.Blog.xproj", "{6D69902A-91EF-4E76-8BC3-91EDFA48A49F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent.Gallery", "src\MatrixContent\Areas\MatrixContent.Gallery\MatrixContent.Gallery.xproj", "{3A99805C-4111-447C-8A6F-E175D59BBD52}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent.Models", "src\MatrixContent.Models\MatrixContent.Models.xproj", "{FBC5A98E-1DC1-41CD-805C-A596585CE5F0}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MatrixContent.Blog.Models", "src\MatrixContent\Areas\MatrixContent.Blog.Models\MatrixContent.Blog.Models.xproj", "{B6245059-9292-4A0E-9FC0-DBC2940A683C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E4961B2-C8D4-44A5-A458-18A833FFA613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4961B2-C8D4-44A5-A458-18A833FFA613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4961B2-C8D4-44A5-A458-18A833FFA613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4961B2-C8D4-44A5-A458-18A833FFA613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32AAB54-223A-4509-AA1C-415C7CA43D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32AAB54-223A-4509-AA1C-415C7CA43D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32AAB54-223A-4509-AA1C-415C7CA43D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32AAB54-223A-4509-AA1C-415C7CA43D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D69902A-91EF-4E76-8BC3-91EDFA48A49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D69902A-91EF-4E76-8BC3-91EDFA48A49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D69902A-91EF-4E76-8BC3-91EDFA48A49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D69902A-91EF-4E76-8BC3-91EDFA48A49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A99805C-4111-447C-8A6F-E175D59BBD52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A99805C-4111-447C-8A6F-E175D59BBD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A99805C-4111-447C-8A6F-E175D59BBD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A99805C-4111-447C-8A6F-E175D59BBD52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC5A98E-1DC1-41CD-805C-A596585CE5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC5A98E-1DC1-41CD-805C-A596585CE5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC5A98E-1DC1-41CD-805C-A596585CE5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC5A98E-1DC1-41CD-805C-A596585CE5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6245059-9292-4A0E-9FC0-DBC2940A683C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6245059-9292-4A0E-9FC0-DBC2940A683C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6245059-9292-4A0E-9FC0-DBC2940A683C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6245059-9292-4A0E-9FC0-DBC2940A683C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E4961B2-C8D4-44A5-A458-18A833FFA613} = {57DD1501-16CF-4E76-AC91-DB8238656F86}
+		{1381DA0B-72D6-46E2-8BC0-6A3DF7436692} = {57DD1501-16CF-4E76-AC91-DB8238656F86}
+		{C32AAB54-223A-4509-AA1C-415C7CA43D24} = {57DD1501-16CF-4E76-AC91-DB8238656F86}
+		{6D69902A-91EF-4E76-8BC3-91EDFA48A49F} = {1381DA0B-72D6-46E2-8BC0-6A3DF7436692}
+		{3A99805C-4111-447C-8A6F-E175D59BBD52} = {1381DA0B-72D6-46E2-8BC0-6A3DF7436692}
+		{FBC5A98E-1DC1-41CD-805C-A596585CE5F0} = {57DD1501-16CF-4E76-AC91-DB8238656F86}
+		{B6245059-9292-4A0E-9FC0-DBC2940A683C} = {1381DA0B-72D6-46E2-8BC0-6A3DF7436692}
+	EndGlobalSection
+EndGlobal

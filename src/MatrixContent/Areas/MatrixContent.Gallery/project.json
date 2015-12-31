@@ -1,0 +1,15 @@
+﻿{
+    "version": "1.0.0-*",
+    "description": "MatrixContent.Gallery Class Library",
+    "authors": [ "yuxilang" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": { } 
+    }
+}

@@ -1,0 +1,17 @@
+﻿{
+    "version": "1.0.0-*",
+    "description": "MatrixContent.Blog.Models Class Library",
+    "authors": [ "yuxilang" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "MatrixContent.Models": "1.0.0-*",
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": { }
+    }
+}
