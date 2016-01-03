@@ -1,0 +1,7 @@
+﻿dnx ef migrations add DbMigration -c ApplicationDbContext -v
+
+dnx ef database update -c ApplicationDbContext -v
+
+
+note:
+constructor of ApplicationDbContext could make database update failed. 

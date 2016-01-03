@@ -22,6 +22,11 @@ namespace MatrixContent.Framework
         {
             mServiceProvider = serviceProvider;
         }
+        //public ApplicationDbContext()
+        //{
+
+        //}
+
         /// <summary>
         /// Called when [model creating].
         /// </summary>
@@ -30,11 +35,24 @@ namespace MatrixContent.Framework
         {
             base.OnModelCreating(builder);
 
-            var initializers = mServiceProvider.GetServices<IDatabaseModelInitializer>();
-            foreach(var item in initializers)
+            if (mServiceProvider != null)
             {
-                item.Initialize(builder);
+                var initializers = mServiceProvider.GetServices<IDatabaseModelInitializer>();
+                foreach (var item in initializers)
+                {
+                    item.Initialize(builder);
+                }
             }
+        }
+        /// <summary>
+        /// Called when [configuring].
+        /// </summary>
+        /// <param name="optionsBuilder">The options builder.</param>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.UseSqlServer(@"data source=(local);Initial Catalog=MatrixContentTest;Integrated Security=SSPI;Trusted_Connection=True;MultipleActiveResultSets=true;");
         }
     }
 }

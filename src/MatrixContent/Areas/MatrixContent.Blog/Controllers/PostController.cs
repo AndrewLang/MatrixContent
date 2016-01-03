@@ -14,7 +14,7 @@ namespace MatrixContent.Blog.Controllers
     {
         public PostController(ApplicationDbContext context)
         {
-
+            var blogs = context.Set<Blog.Models.Blog>().ToList();
         }
         // GET: /<controller>/
         public IActionResult Index()
