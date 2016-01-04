@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MatrixContent</title>
+    <title>@ViewData["Title"] - Matrix Content</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -36,14 +36,15 @@
 
                 @if(User.IsSignedIn())
                 {
-                    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="form-inline pull-xs-right">
+                    <form asp-route="logoff" method="post" id="logoutForm" class="form-inline pull-xs-right">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="nav-item">
-                                <a asp-controller="Manage" asp-action="Index" title="Manage" class="nav-link">Hello @User.GetUserName()!</a>
+                                <a asp-route="manage" title="Manage" class="nav-link">Hello @User.GetUserName()!</a>
                             </li>
                             <li class="nav-item">
-                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+                                <button type="submit" class="btn btn-link navbar-btn nav-link">Log off</button>
                             </li>
+                            
                         </ul>
                     </form>
                 }

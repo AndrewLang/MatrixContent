@@ -13,7 +13,7 @@ namespace MatrixContent.Security
     /// 
     /// </summary>
     /// <seealso cref="MatrixContent.Framework.Extension" />
-    public class SecurityExtension : Extension
+    public class SecurityExtension:Extension
     {
         /// <summary>
         /// Configures the services.
@@ -38,12 +38,19 @@ namespace MatrixContent.Security
             routes.MapRoute(
                 name: "login",
                 template: "{area}/login",
-                defaults: new { area="security", controller = "Account",action = "Login" });
-
-            routes.MapRoute(
+                defaults: new { area = "security",controller = "Account",action = "Login" })
+            .MapRoute(
+               name: "logoff",
+               template: "{area}/logoff",
+               defaults: new { area = "security",controller = "Account",action = "LogOff" })
+            .MapRoute(
                 name: "register",
                 template: "{area}/register",
-                defaults: new { area = "security",controller = "Account",action = "Register" });
+                defaults: new { area = "security",controller = "Account",action = "Register" })
+            .MapRoute(
+                name: "manage",
+                template: "{area}/manage",
+                defaults: new { area = "security",controller = "Manage",action = "Index" });
         }
     }
 }
