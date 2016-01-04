@@ -35,8 +35,15 @@ namespace MatrixContent.Blog.Models
         /// Gets or sets a value indicating whether this instance is ignore.
         /// </summary>
         /// <value>
-        /// {D255958A-8513-4226-94B9-080D98F904A1}  <c>true</c> if this instance is ignore; otherwise, <c>false</c>.
+        ///   <c>true</c> if this instance is ignore; otherwise, <c>false</c>.
         /// </value>
-        public bool IsIgnore { get; set; }
+        public bool IsDeleted { get; set; }
+        /// <summary>
+        /// Gets or sets the user identifier.
+        /// </summary>
+        /// <value>
+        /// The user identifier.
+        /// </value>
+        public int UserID { get; set; }
     }
 }

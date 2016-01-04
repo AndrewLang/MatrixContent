@@ -89,7 +89,6 @@ namespace MatrixContent.Blog.Models
         ///   <c>true</c> if this instance is public; otherwise, <c>false</c>.
         /// </value>
         public bool IsPublic { get; set; }
-        //public bool IsDraft { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether this post enable comments.
         /// </summary>
@@ -109,6 +108,13 @@ namespace MatrixContent.Blog.Models
         /// <c>true</c> if this instance has splash; otherwise, <c>false</c>.
         /// </value>
         public bool HasSplash { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is deleted.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is deleted; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsDeleted { get; set; }
         /// <summary>
         /// Gets or sets the read count.
         /// </summary>
