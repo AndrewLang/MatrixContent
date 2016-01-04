@@ -1,13 +1,14 @@
 {
   "name": "ASP.NET",
   "private": true,
-  
-  "dependencies": {
-    "bootstrap": "4.0.0-alpha",
-    "jquery": "2.1.4",
-    "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.4",
-    "fontawesome": "4.4.0",
-    "es6-shim": "0.34.0"
-  }
+
+    "dependencies": {
+        "bootstrap": "4.0.0-alpha.2",
+        "jquery": "2.1.4",
+        "jquery-validation": "1.14.0",
+        "jquery-validation-unobtrusive": "3.2.4",
+        "fontawesome": "4.4.0",
+        "es6-shim": "0.34.0",
+        "tether": "1.1.1"
+    }
 }

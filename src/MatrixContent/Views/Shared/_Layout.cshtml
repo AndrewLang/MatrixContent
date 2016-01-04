@@ -7,12 +7,14 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/tether/dist/css/tether.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/lib/tether/dist/css/tether.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
@@ -29,6 +31,30 @@
                     <li class="nav-item"><a asp-controller="Home" asp-action="About" class="nav-link">About</a></li>
                     <li class="nav-item"><a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
                 </ul>
+
+                
+
+                @if(User.IsSignedIn())
+                {
+                    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="form-inline pull-xs-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a asp-controller="Manage" asp-action="Index" title="Manage" class="nav-link">Hello @User.GetUserName()!</a>
+                            </li>
+                            <li class="nav-item">
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+                            </li>
+                        </ul>
+                    </form>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav pull-xs-right">
+                        <li class="nav-item"><a asp-route="register" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a asp-route="login" class="nav-link">Log in</a></li>
+                    </ul>
+                }
+
             </div>
         </div>
     </nav>
@@ -42,7 +68,8 @@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/tether/dist/js/tether.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>        
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
@@ -50,10 +77,11 @@
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
         </script>
+        <script src="~/lib/tether/dist/js/tether.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
+        </script>        
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
@@ -67,12 +95,12 @@
     <script>
         System.config({
             transpiler: 'typescript',
-            typescriptOptions: { emitDecoratorMetadata: true },           
+            typescriptOptions: { emitDecoratorMetadata: true },
         });
         System.import('app/app.ts')
               .then(null, console.error.bind(console));
     </script>
 
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts",required: false)
 </body>
 </html>
