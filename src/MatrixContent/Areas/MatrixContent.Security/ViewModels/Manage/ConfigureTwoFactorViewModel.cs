@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc.Rendering;
 
-namespace Account.ViewModels.Manage
+namespace MatrixContent.Security.ViewModels
 {
     public class ConfigureTwoFactorViewModel
     {

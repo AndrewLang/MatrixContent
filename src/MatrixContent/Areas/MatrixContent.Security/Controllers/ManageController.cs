@@ -7,7 +7,7 @@ using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.Logging;
-using Account.ViewModels.Manage;
+using MatrixContent.Security.ViewModels;
 using MatrixContent.Models;
 
 namespace MatrixContent.Security.Controllers
