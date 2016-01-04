@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "MatrixContent.Security Class Library",
+  "authors": [ "Andy" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "MatrixContent.Framework": "1.0.0-*",
+    "MatrixContent.Models": "1.0.0-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+  },
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  }
+}

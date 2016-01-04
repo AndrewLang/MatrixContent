@@ -22,10 +22,13 @@ namespace MatrixContent.Framework
         {
             mServiceProvider = serviceProvider;
         }
-        //public ApplicationDbContext()
-        //{
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationDbContext"/> class.
+        /// </summary>
+        public ApplicationDbContext()
+        {
 
-        //}
+        }
 
         /// <summary>
         /// Called when [model creating].
