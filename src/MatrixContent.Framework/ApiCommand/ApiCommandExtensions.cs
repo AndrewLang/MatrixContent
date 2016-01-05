@@ -15,19 +15,17 @@ namespace MatrixContent.Framework
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns></returns>
-        public static IEnumerable<KeyValuePair<string,Func<object,object>>> DiscoveryCommands(this object instance)
+        public static IEnumerable<KeyValuePair<string, Func<object, object>>> DiscoveryCommands(this object instance)
         {
             var type = instance.GetType();
             var commands = type.GetMethods(DiscoveryFlag)
-                     .Where(x => x.GetCustomAttributes(typeof(ApiCommandAttribute),false).Length > 0)
+                     .Where(x => x.GetCustomAttributes(typeof(ApiCommandAttribute), false).Length > 0)
                      .Select(x =>
                      {
                          var attribute = x.GetCustomAttribute<ApiCommandAttribute>(false);
-                         if(!string.IsNullOrEmpty(attribute.Name))
-                         {
-                             // mCommands.Add(attribute.Name,args => { return x.Invoke(this,new object[] { args }); });
-                             return new KeyValuePair<string,Func<object,object>>(attribute.Name,args => { return x.Invoke(instance,new object[] { args }); });
-                         }
+
+                         return new KeyValuePair<string, Func<object, object>>(attribute.Name,
+                             args => { return null; });
                      });
 
             return commands;
