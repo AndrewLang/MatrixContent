@@ -19,7 +19,7 @@ namespace MatrixContent.Framework
         {
             var type = instance.GetType();
             var commands = type.GetMethods(DiscoveryFlag)
-                     .Where(x => x.GetCustomAttributes(typeof(ApiCommandAttribute), false).Length > 0)
+                     .Where(x => x.GetCustomAttributes(typeof(ApiCommandAttribute), false).Count() > 0)
                      .Select(x =>
                      {
                          var attribute = x.GetCustomAttribute<ApiCommandAttribute>(false);
