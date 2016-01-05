@@ -60,6 +60,9 @@ namespace MatrixContent
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
+            services.AddScoped<DbContext,ApplicationDbContext>()
+                    .AddScoped<IRepository,EntityRepository>();
+
             services.AddMvc()
                     .AddRazorOptions(options => {
                         options.ViewLocationExpanders.Add(new ModuleViewLocationExpander("MatrixContent"));
@@ -109,9 +112,16 @@ namespace MatrixContent
                    defaults: new { controller = "Admin",action = "Index" });
 
                 routes.MapRoute(
+                   name: "view",
+                   template: "view/{viewName}",
+                   defaults: new { controller = "View",action = "GetView" }
+                   );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
 
         /// <summary>

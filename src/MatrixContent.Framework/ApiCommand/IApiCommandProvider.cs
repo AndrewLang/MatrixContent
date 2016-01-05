@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace MatrixContent.Framework
 {
     /// <summary>
-    /// 
+    /// API Commands provider
     /// </summary>
     public interface IApiCommandProvider
     {

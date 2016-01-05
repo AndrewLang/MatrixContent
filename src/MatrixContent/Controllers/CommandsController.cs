@@ -39,7 +39,6 @@ namespace MatrixContent.Controllers
         {
             if(command != null && mCommandRepository.IsSupported(command))
             {
-                //command.Context = ViewBag;
                 //command.Context.ClientIpAddress = Request.HttpContext.GetFeature<IHttpConnectionFeature>( )?.RemoteIpAddress;
 
                 var result = mCommandRepository.Invoke(command);

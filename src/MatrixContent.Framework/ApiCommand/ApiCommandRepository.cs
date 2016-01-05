@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,12 +34,15 @@ namespace MatrixContent.Framework
         {
             if(mIsBuilt)
                 return;
+
             var providers = mServiceProvider.GetServices<IApiCommandProvider>();
 
             foreach(var item in providers.SelectMany(x => x.GetCommands()))
             {
                 if(!mCommands.ContainsKey(item.Key))
                     mCommands.Add(item.Key,item.Value);
+                else
+                    Debug.WriteLine(string.Format("{0} was not registered for there is a command with the same name already.",item.Key));
             }
             mIsBuilt = true;
         }

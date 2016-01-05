@@ -5,18 +5,29 @@ using System.Threading.Tasks;
 using MatrixContent.Framework;
 using Microsoft.AspNet.Mvc;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MatrixContent.Blog.Controllers
 {
-    [Area("Blog")]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNet.Mvc.Controller" />
+    [Area(Consts.AreaName)]
     public class PostController : Controller
     {
-        public PostController(ApplicationDbContext context)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostController"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
+        public PostController(IRepository repository)
         {
-            var blogs = context.Set<Blog.Models.Blog>().ToList();
+            var posts = repository.GetPublicPosts();
         }
-        // GET: /<controller>/
+
+        /// <summary>
+        /// Indexes this instance.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();

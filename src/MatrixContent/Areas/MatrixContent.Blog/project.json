@@ -6,13 +6,16 @@
     "projectUrl": "",
     "licenseUrl": "",
 
-  "dependencies": {
-    "MatrixContent.Blog.Models": "1.0.0-*",
-    "MatrixContent.Framework": "1.0.0-*",
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
-  },
+    "dependencies": {
+        "MatrixContent.Blog.Models": "1.0.0-*",
+        "MatrixContent.Framework": "1.0.0-*",
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    },
     "frameworks": {
         "dnx451": { },
         "dnxcore50": { }
-    }
+    },
+    "exclude": [
+        "wwwroot"
+    ]
 }

@@ -1,0 +1,31 @@
+﻿
+<div class="container">
+    <h1>{{title}}</h1>
+    <h3>Friends <span class="badge">{{Persons.length}}</span>:</h3>
+    <ul>
+        <li *ngFor="#person of Persons">
+            {{person.Name}}		<button type="button" class="btn btn-default btn-sm" (click)="removeFriend(person)"><i class="fa fa-close"></i></button>
+        </li>
+    </ul>
+    <h3 *ngIf="Persons.length > 3">You have many friends!</h3>
+
+
+    <form #hf="ngForm" class="form-horizontal" (ngSubmit)="addFriend(newFriend)">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-lg">
+                    <input class="form-control" type="text" #newFriend (keyup.enter)="addFriend(newFriend)">
+
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default btn-primary"
+                                [disabled]="!hf.form.valid">
+                            Submit
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    @*<button (click)=addFriend(newFriend) [disabled]="!newFriend.value">Add</button>*@
+</div>

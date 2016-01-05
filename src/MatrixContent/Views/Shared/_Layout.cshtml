@@ -8,6 +8,7 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/lib/tether/dist/css/tether.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
@@ -15,6 +16,7 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/lib/tether/dist/css/tether.min.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
@@ -31,8 +33,6 @@
                     <li class="nav-item"><a asp-controller="Home" asp-action="About" class="nav-link">About</a></li>
                     <li class="nav-item"><a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
                 </ul>
-
-                
 
                 @if(User.IsSignedIn())
                 {
@@ -86,20 +86,22 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
+    <!--Support IE-->
+    <script src="~/lib/es6-shim/es6-shim.js"></script>
     <!--Angular2-->
     <script src="~/lib/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="~/lib/systemjs/dist/system.src.js"></script>
+    <script src="~/lib/systemjs/dist/system.js"></script>
     <script src="~/lib/typescript/lib/typescript.js"></script>
     <script src="~/lib/rxjs/bundles/Rx.js"></script>
     <script src="~/lib/angular2/bundles/angular2.dev.js"></script>
 
     <script>
-        System.config({
-            transpiler: 'typescript',
-            typescriptOptions: { emitDecoratorMetadata: true },
-        });
-        System.import('app/app.ts')
-              .then(null, console.error.bind(console));
+        //System.config({
+        //    transpiler: 'typescript',
+        //    typescriptOptions: { emitDecoratorMetadata: true },
+        //});
+        //System.import('app/app.ts')
+        //      .then(null, console.error.bind(console));
     </script>
 
     @RenderSection("scripts",required: false)

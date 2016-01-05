@@ -6,6 +6,10 @@ using Microsoft.AspNet.Mvc.Razor;
 
 namespace MatrixContent.Framework
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNet.Mvc.Razor.IViewLocationExpander" />
     public class ModuleViewLocationExpander:IViewLocationExpander
     {
         readonly string mPrefix;

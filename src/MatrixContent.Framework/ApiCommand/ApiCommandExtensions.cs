@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MatrixContent.Framework
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ApiCommandExtensions
     {
         static BindingFlags DiscoveryFlag = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
@@ -15,7 +18,7 @@ namespace MatrixContent.Framework
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns></returns>
-        public static IEnumerable<KeyValuePair<string, Func<object, object>>> DiscoveryCommands(this object instance)
+        public static IEnumerable<KeyValuePair<string, Func<object, object>>> DiscoveryApiCommands(this object instance)
         {
             var type = instance.GetType();
             var commands = type.GetMethods(DiscoveryFlag)

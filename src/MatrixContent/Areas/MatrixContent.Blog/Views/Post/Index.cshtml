@@ -1,7 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+<div>
+    <my-app>
+        <h2>loading...</h2>
+    </my-app>
 
-<h2>posts</h2>
+</div>
+
+@section scripts{
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true },
+        });
+        System.import('wwwroot/app/app.ts')
+              .then(null, console.error.bind(console));
+    </script>
+}
