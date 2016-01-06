@@ -1,5 +1,7 @@
 ﻿
 <div>
+    <img src="~/images/22.jpg" />
+
     <my-app>
         <h2>loading...</h2>
     </my-app>
@@ -12,7 +14,7 @@
             transpiler: 'typescript',
             typescriptOptions: { emitDecoratorMetadata: true },
         });
-        System.import('wwwroot/app/app.ts')
+        System.import('/app/app.ts')
               .then(null, console.error.bind(console));
     </script>
 }

@@ -18,6 +18,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 using MatrixContent.Framework;
 using MatrixContent.Models;
+using Microsoft.AspNet.StaticFiles;
+using Microsoft.AspNet.FileProviders;
+using Microsoft.AspNet.Http;
 
 namespace MatrixContent
 {
@@ -78,7 +81,8 @@ namespace MatrixContent
         /// <param name="app">The application.</param>
         /// <param name="env">The env.</param>
         /// <param name="loggerFactory">The logger factory.</param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        /// <param name="appEnv">The application env.</param>
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,IApplicationEnvironment appEnv)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -95,7 +99,9 @@ namespace MatrixContent
 
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
 
-            app.UseStaticFiles();
+            var areaPath = Path.Combine( appEnv.ApplicationBasePath, "areas" );
+
+            app.UseStaticFiles();                
 
             app.UseIdentity();
 

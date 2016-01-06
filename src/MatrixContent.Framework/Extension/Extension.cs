@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace MatrixContent.Framework
 {
@@ -39,6 +41,18 @@ namespace MatrixContent.Framework
         public virtual void ConfigureServices(IServiceCollection services)
         {
 
+        }
+
+        /// <summary>
+        /// Extensions the resource path.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        protected virtual string ExtensionResourcePath(IApplicationBuilder app,string name)
+        {
+            var appEnv = app.ApplicationServices.GetService<IApplicationEnvironment>();
+            return Path.Combine(appEnv.ApplicationBasePath,$"areas\\{name}\\wwwroot");
         }
     }
 }

@@ -9,7 +9,8 @@ namespace MatrixContent.Blog
     {
         public const int DefaultPageSize = 10;
         public const string BlogId = "CDDE55F5-0771-4533-B856-0E72178C2801";
-        public const string AreaName = "MatrixContent.Blog";
+        public const string AreaName = "Blog";
+        public const string AreaFolder = "MatrixContent.Blog";
 
     }
 }

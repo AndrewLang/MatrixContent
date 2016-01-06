@@ -7,6 +7,11 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNet.Builder;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
+using Microsoft.AspNet.StaticFiles;
+using Microsoft.AspNet.FileProviders;
+using Microsoft.AspNet.Http;
 
 namespace MatrixContent.Blog
 {
@@ -38,5 +43,21 @@ namespace MatrixContent.Blog
         //       template: "{area}/{controller}/{action}",
         //       defaults: new { area = "blog",controller = "Post",action = "Index" });
         //}
+
+        /// <summary>
+        /// Configures the specified application.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        public override void Configure(IApplicationBuilder app)
+        {
+            base.Configure(app);
+
+            var areaPath = ExtensionResourcePath(app, Consts.AreaFolder); 
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(areaPath),
+            });
+        }
     }
 }
