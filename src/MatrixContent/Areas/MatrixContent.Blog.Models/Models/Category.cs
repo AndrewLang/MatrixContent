@@ -17,7 +17,7 @@ namespace MatrixContent.Blog.Models
         public Category( )
         {
             DateCreated = DateTime.Now;
-            Posts = new List<Post>( );
+            Posts = new HashSet<PostCategory>( );
         }
 
         /// <summary>
@@ -46,6 +46,6 @@ namespace MatrixContent.Blog.Models
         /// Gets or sets the posts in this category.
         /// </summary>
         /// <value>The posts.</value>
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<PostCategory> Posts { get; set; }
     }
 }

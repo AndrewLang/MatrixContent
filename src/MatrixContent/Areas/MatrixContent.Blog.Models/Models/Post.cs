@@ -25,9 +25,9 @@ namespace MatrixContent.Blog.Models
         /// </summary>
         public Post( )
         {
-            Tags = new List<Tag>( );
+            Tags = new List<PostTag>( );
             Comments = new List<Comment>( );
-            Categories = new List<Category>( );
+            Categories = new List<PostCategory>( );
             ReadCount = 0;
         }
         #endregion ...Constructor...
@@ -114,7 +114,7 @@ namespace MatrixContent.Blog.Models
         /// <value>
         /// <c>true</c> if this instance is deleted; otherwise, <c>false</c>.
         /// </value>
-        public bool IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
         /// <summary>
         /// Gets or sets the read count.
         /// </summary>
@@ -145,12 +145,12 @@ namespace MatrixContent.Blog.Models
         /// Gets or sets the categories.
         /// </summary>
         /// <value>The categories.</value>
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<PostCategory> Categories { get; set; }
         /// <summary>
         /// Gets or sets the tags.
         /// </summary>
         /// <value>The tags.</value>
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<PostTag> Tags { get; set; }
         #endregion ...Properties...
 
         #region ... Methods    ...

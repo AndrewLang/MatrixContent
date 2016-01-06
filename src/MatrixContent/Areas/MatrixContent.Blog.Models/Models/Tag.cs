@@ -21,6 +21,6 @@ namespace MatrixContent.Blog.Models
         /// Gets or sets the posts.
         /// </summary>
         /// <value>The posts.</value>
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<PostTag> Posts { get; set; }
     }
 }

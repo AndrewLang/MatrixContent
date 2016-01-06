@@ -29,6 +29,89 @@ namespace MatrixContent.Migrations
                     table.PrimaryKey("PK_Blog", x => x.ID);
                 });
             migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.ID);
+                });
+            migrationBuilder.CreateTable(
+                name: "Post",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Content = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true),
+                    DatePublished = table.Column<DateTime>(nullable: true),
+                    EnableComments = table.Column<bool>(nullable: false),
+                    HasSplash = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: true),
+                    IsPublic = table.Column<bool>(nullable: false),
+                    IsPublished = table.Column<bool>(nullable: false),
+                    Rating = table.Column<int>(nullable: true),
+                    ReadCount = table.Column<int>(nullable: true),
+                    Slug = table.Column<string>(nullable: true),
+                    SplashUrl = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    UserID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Post", x => x.ID);
+                });
+            migrationBuilder.CreateTable(
+                name: "PostAccessInfo",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AccessDate = table.Column<DateTime>(nullable: true),
+                    Client = table.Column<string>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    PostID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostAccessInfo", x => x.ID);
+                });
+            migrationBuilder.CreateTable(
+                name: "PostRating",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IPAddress = table.Column<string>(nullable: true),
+                    PostID = table.Column<int>(nullable: false),
+                    RateDate = table.Column<DateTime>(nullable: true),
+                    Rating = table.Column<float>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostRating", x => x.ID);
+                });
+            migrationBuilder.CreateTable(
+                name: "Tag",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tag", x => x.ID);
+                });
+            migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
                 {
@@ -81,6 +164,75 @@ namespace MatrixContent.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_IdentityRole", x => x.Id);
+                });
+            migrationBuilder.CreateTable(
+                name: "Comment",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Content = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    IPAddress = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    PostID = table.Column<int>(nullable: false),
+                    UserID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Comment_Post_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Post",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
+                name: "PostCategory",
+                columns: table => new
+                {
+                    PostID = table.Column<int>(nullable: false),
+                    CategoryID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostCategory", x => new { x.PostID, x.CategoryID });
+                    table.ForeignKey(
+                        name: "FK_PostCategory_Category_CategoryID",
+                        column: x => x.CategoryID,
+                        principalTable: "Category",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PostCategory_Post_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Post",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
+                name: "PostTag",
+                columns: table => new
+                {
+                    PostID = table.Column<int>(nullable: false),
+                    TagID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostTag", x => new { x.PostID, x.TagID });
+                    table.ForeignKey(
+                        name: "FK_PostTag_Post_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Post",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PostTag_Tag_TagID",
+                        column: x => x.TagID,
+                        principalTable: "Tag",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
@@ -181,10 +333,18 @@ namespace MatrixContent.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable("Blog");
+            migrationBuilder.DropTable("Comment");
+            migrationBuilder.DropTable("PostAccessInfo");
+            migrationBuilder.DropTable("PostCategory");
+            migrationBuilder.DropTable("PostRating");
+            migrationBuilder.DropTable("PostTag");
             migrationBuilder.DropTable("AspNetRoleClaims");
             migrationBuilder.DropTable("AspNetUserClaims");
             migrationBuilder.DropTable("AspNetUserLogins");
             migrationBuilder.DropTable("AspNetUserRoles");
+            migrationBuilder.DropTable("Category");
+            migrationBuilder.DropTable("Post");
+            migrationBuilder.DropTable("Tag");
             migrationBuilder.DropTable("AspNetRoles");
             migrationBuilder.DropTable("AspNetUsers");
         }

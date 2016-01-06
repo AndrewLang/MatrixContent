@@ -40,6 +40,140 @@ namespace MatrixContent.Migrations
                     b.HasKey("ID");
                 });
 
+            modelBuilder.Entity("MatrixContent.Blog.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.Comment", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<int>("PostID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.Post", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<DateTime?>("DatePublished");
+
+                    b.Property<bool>("EnableComments");
+
+                    b.Property<bool>("HasSplash");
+
+                    b.Property<bool?>("IsDeleted");
+
+                    b.Property<bool>("IsPublic");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<int?>("Rating");
+
+                    b.Property<int?>("ReadCount");
+
+                    b.Property<string>("Slug");
+
+                    b.Property<string>("SplashUrl");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostAccessInfo", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("AccessDate");
+
+                    b.Property<string>("Client");
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<int>("PostID");
+
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostCategory", b =>
+                {
+                    b.Property<int>("PostID");
+
+                    b.Property<int>("CategoryID");
+
+                    b.HasKey("PostID", "CategoryID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostRating", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<int>("PostID");
+
+                    b.Property<DateTime?>("RateDate");
+
+                    b.Property<float>("Rating");
+
+                    b.HasKey("ID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostTag", b =>
+                {
+                    b.Property<int>("PostID");
+
+                    b.Property<int>("TagID");
+
+                    b.HasKey("PostID", "TagID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.Tag", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("ID");
+                });
+
             modelBuilder.Entity("MatrixContent.Models.User", b =>
                 {
                     b.Property<string>("Id");
@@ -202,6 +336,35 @@ namespace MatrixContent.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.Comment", b =>
+                {
+                    b.HasOne("MatrixContent.Blog.Models.Post")
+                        .WithMany()
+                        .HasForeignKey("PostID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostCategory", b =>
+                {
+                    b.HasOne("MatrixContent.Blog.Models.Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID");
+
+                    b.HasOne("MatrixContent.Blog.Models.Post")
+                        .WithMany()
+                        .HasForeignKey("PostID");
+                });
+
+            modelBuilder.Entity("MatrixContent.Blog.Models.PostTag", b =>
+                {
+                    b.HasOne("MatrixContent.Blog.Models.Post")
+                        .WithMany()
+                        .HasForeignKey("PostID");
+
+                    b.HasOne("MatrixContent.Blog.Models.Tag")
+                        .WithMany()
+                        .HasForeignKey("TagID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
