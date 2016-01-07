@@ -1,0 +1,12 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h3>Posts <span class="badge">{{Posts.length}}</span>:</h3>
+<ul>
+    <li *ngFor="#post of Posts">
+        {{post.Title}} - {{post.DateCreated}}
+    </li>
+</ul>

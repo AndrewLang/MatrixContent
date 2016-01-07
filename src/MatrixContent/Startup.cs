@@ -67,12 +67,18 @@ namespace MatrixContent
                     .AddScoped<IRepository,EntityRepository>();
 
             services.AddMvc()
+                    .AddMvcOptions(options =>
+                    {
+                        //options.ModelBinders.Add(typeof(ApiCommand));
+                    })
                     .AddRazorOptions(options => {
                         options.ViewLocationExpanders.Add(new ModuleViewLocationExpander("MatrixContent"));
                     });
 
             services.AddExtensions()
                     .ConfigureExtensions();
+
+            services.AddSingleton<IApiCommandRepository,ApiCommandRepository>();
         }
 
         /// <summary>

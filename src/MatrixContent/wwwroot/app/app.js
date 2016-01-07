@@ -6,9 +6,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-define(["require", "exports", 'angular2/platform/browser', 'angular2/core', './models/Person.ts', './services/FriendService.ts'], function (require, exports, browser_1, core_1, Person_ts_1, FriendService_ts_1) {
+define(["require", "exports", 'angular2/platform/browser', 'angular2/core', 'angular2/http', './models/Person.ts', './services/FriendService.ts'], function (require, exports, browser_1, core_1, http_1, Person_ts_1, FriendService_ts_1) {
     var AppComponent = (function () {
-        function AppComponent(friendService) {
+        function AppComponent(friendService, http) {
             console.log("Start app component.");
             this.title = "My first Angular 2 App";
             //var friendService = new FriendService();
@@ -41,5 +41,6 @@ define(["require", "exports", 'angular2/platform/browser', 'angular2/core', './m
     })();
     browser_1.bootstrap(AppComponent, [
         FriendService_ts_1.FriendService,
+        http_1.HTTP_PROVIDERS
     ]).then(function (success) { return console.log('App Bootstrapped!'); }, function (error) { return console.log(error); });
 });

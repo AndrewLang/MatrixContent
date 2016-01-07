@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MatrixContent.Framework;
@@ -13,7 +14,7 @@ namespace MatrixContent.Blog.Controllers
     /// </summary>
     /// <seealso cref="Microsoft.AspNet.Mvc.Controller" />
     [Area(Consts.AreaName)]
-    public class PostController : Controller
+    public class PostController:Controller
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostController"/> class.
@@ -22,6 +23,8 @@ namespace MatrixContent.Blog.Controllers
         public PostController(IRepository repository)
         {
             var posts = repository.GetPublicPosts();
+            var count = posts.Count();
+            Debug.WriteLine(count);
         }
 
         /// <summary>
@@ -32,5 +35,7 @@ namespace MatrixContent.Blog.Controllers
         {
             return View();
         }
+
+        
     }
 }

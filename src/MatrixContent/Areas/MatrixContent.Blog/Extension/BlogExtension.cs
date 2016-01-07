@@ -30,19 +30,19 @@ namespace MatrixContent.Blog
             services.TryAddEnumerable(ServiceDescriptor.Singleton(typeof(IDatabaseModelInitializer),typeof(BlogDatabaseInitializer)));
             services.TryAddEnumerable(ServiceDescriptor.Singleton(typeof(IApiCommandProvider),typeof(BlogCommandsProvider)));
         }
-        ///// <summary>
-        ///// Configures the routes.
-        ///// </summary>
-        ///// <param name="routes">The routes.</param>
-        //public override void ConfigureRoutes(IRouteBuilder routes)
-        //{
-        //    base.ConfigureRoutes(routes);
+        /// <summary>
+        /// Configures the routes.
+        /// </summary>
+        /// <param name="routes">The routes.</param>
+        public override void ConfigureRoutes(IRouteBuilder routes)
+        {
+            base.ConfigureRoutes(routes);
 
-        //    routes.MapRoute(
-        //       name: "blog",
-        //       template: "{area}/{controller}/{action}",
-        //       defaults: new { area = "blog",controller = "Post",action = "Index" });
-        //}
+            routes.MapRoute(
+               name: "blogView",
+               template: "{area}/view/{name}",
+               defaults: new { area = "blog",controller = "Views",action = "GetPartiaView" });
+        }
 
         /// <summary>
         /// Configures the specified application.

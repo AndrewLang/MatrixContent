@@ -118,3 +118,15 @@
 <my-app>
     <h2>loading...</h2>
 </my-app>
+
+
+@section scripts{
+<script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true },
+        });
+        System.import('app/app.ts')
+              .then(null, console.error.bind(console));
+</script>
+}

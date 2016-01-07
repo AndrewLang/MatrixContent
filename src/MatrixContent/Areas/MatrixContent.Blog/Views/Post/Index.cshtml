@@ -1,11 +1,14 @@
 ﻿
-<div>
-    <img src="~/images/22.jpg" />
+<div class="row">
+    <div class="col-md-9">
+        <posts>
+            @await Html.PartialAsync("_LoadingView")
+        </posts>
+    </div>
 
-    <my-app>
-        <h2>loading...</h2>
-    </my-app>
+    <div class="col-md-3">
 
+    </div>
 </div>
 
 @section scripts{
@@ -14,7 +17,7 @@
             transpiler: 'typescript',
             typescriptOptions: { emitDecoratorMetadata: true },
         });
-        System.import('/app/app.ts')
+        System.import('/blogapp/blog.ts')
               .then(null, console.error.bind(console));
     </script>
 }

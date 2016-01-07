@@ -5,8 +5,7 @@
 import {bootstrap}    from 'angular2/platform/browser'
 import {FORM_PROVIDERS, ELEMENT_PROBE_PROVIDERS, Directive, Attribute, Component, View, ElementRef, EventEmitter} from 'angular2/core';
 import {NgForm, NgIf}    from 'angular2/common';
-//import {RouteConfig, Router} from 'angular2/router';
-//import {ROUTER_PROVIDERS} from 'angular2/router';
+import {Http, HTTP_PROVIDERS} from 'angular2/http';
 /*
  * Angular Directives
  */
@@ -32,7 +31,7 @@ class AppComponent {
     Persons: Array<Person>;
     newName: string;
 
-    constructor(friendService: FriendService) {
+    constructor(friendService: FriendService, http:Http) {
         console.log("Start app component.");
         this.title = "My first Angular 2 App";
         //var friendService = new FriendService();
@@ -59,7 +58,7 @@ class AppComponent {
 
 bootstrap(AppComponent, [
     FriendService,
-    
+    HTTP_PROVIDERS
     // These are dependencies of our App
 
     //FORM_PROVIDERS,
