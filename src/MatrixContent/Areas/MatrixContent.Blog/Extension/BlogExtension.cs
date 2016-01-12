@@ -39,6 +39,11 @@ namespace MatrixContent.Blog
             base.ConfigureRoutes(routes);
 
             routes.MapRoute(
+              name: "blogHome",
+              template: "{area}/posts",
+              defaults: new { area = "blog", controller = "Post", action = "Index" });
+
+            routes.MapRoute(
                name: "blogView",
                template: "{area}/view/{name}",
                defaults: new { area = "blog",controller = "Views",action = "GetPartiaView" });

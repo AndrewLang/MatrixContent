@@ -21,7 +21,7 @@ var AppComponent = (function () {
         this.Posts = [];
         postService.GetPosts(1, 20, function (response) {
             _this.Posts = response.Items;
-            console.log(_this.Posts);
+            console.log(response);
         });
     }
     AppComponent = __decorate([
