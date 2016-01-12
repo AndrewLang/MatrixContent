@@ -57,6 +57,7 @@ namespace MatrixContent.Blog
             posts.Items.ForEach(x =>
             {
                 x.Content = x.Content.StripHtml().Truncate(400);
+                x.DateCreated = x.DateCreated.Value.Date;
             });
         }
         /// <summary>

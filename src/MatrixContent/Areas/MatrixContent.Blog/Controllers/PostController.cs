@@ -22,11 +22,8 @@ namespace MatrixContent.Blog.Controllers
         /// <param name="repository">The repository.</param>
         public PostController(IRepository repository)
         {
-            var posts = repository.GetPublicPosts();
-            var count = posts.Count();
-            Debug.WriteLine(count);
+            
         }
-
         /// <summary>
         /// Indexes this instance.
         /// </summary>
@@ -34,8 +31,6 @@ namespace MatrixContent.Blog.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
-        
+        }        
     }
 }

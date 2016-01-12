@@ -34,6 +34,7 @@ class AppComponent {
         this.Posts = [];
         postService.GetPosts(1, 20, response=> {
             this.Posts = response.Items;
+            console.log(this.Posts);
         });
     }
 }

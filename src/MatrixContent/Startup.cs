@@ -78,7 +78,8 @@ namespace MatrixContent
             services.AddExtensions()
                     .ConfigureExtensions();
 
-            services.AddSingleton<IApiCommandRepository,ApiCommandRepository>();
+            services.AddSingleton<IApiCommandRepository,ApiCommandRepository>()
+                    .AddSingleton<IModelMapService,ModelMapService>();
         }
 
         /// <summary>

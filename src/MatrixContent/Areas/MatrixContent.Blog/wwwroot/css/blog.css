@@ -1,0 +1,26 @@
+﻿
+.post-card{
+
+}
+
+.post-card img{
+    width:100%;
+}
+
+
+
+.section {
+  padding: 30px 0;
+  position: relative;
+  background-color: #FFFFFF;
+}
+.section-gray {
+  background-color: #EEEEEE;
+}
+.section-white {
+  background-color: #FFFFFF;
+}
+.section-gray {
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+}
