@@ -1,6 +1,5 @@
 ﻿import {Inject} from 'angular2/core';
 
-
 import {Post} from '../models/Post.ts';
 import {DataService} from './DataService.ts'
 
@@ -8,12 +7,11 @@ export class PostService {
 
     dataService: DataService;
 
-    constructor( @Inject(DataService) dataService: DataService) {       
+    constructor( @Inject(DataService) dataService: DataService) {
         this.dataService = dataService;
     }
 
     GetPosts(page: number, pageSize: number, callback: (response: any) => {}): void {
-        console.log("Get posts: Page " + page + " PageSize" + pageSize);
         try {
             var command = { Name: "Blog.GetPosts", Parameters: { Page: 1, PageSize: 10 } };
 
@@ -21,8 +19,7 @@ export class PostService {
                 callback(response.Data);
             });
         }
-        catch (ex)
-        {
+        catch (ex) {
             console.log(ex);
         }
     }

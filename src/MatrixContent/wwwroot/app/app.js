@@ -41,6 +41,6 @@ define(["require", "exports", 'angular2/platform/browser', 'angular2/core', 'ang
     })();
     browser_1.bootstrap(AppComponent, [
         FriendService_ts_1.FriendService,
-        http_1.HTTP_PROVIDERS
+        http_1.HTTP_PROVIDERS,
     ]).then(function (success) { return console.log('App Bootstrapped!'); }, function (error) { return console.log(error); });
 });

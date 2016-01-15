@@ -1,6 +1,6 @@
 ﻿
 <div>
-    <div *ngFor="#post of Posts">
+    <div *ngFor="#post of Data.Items">
         <div class="row">
             <div class="col-md-12">
                 <div class="card post-card">
@@ -35,18 +35,9 @@
     </div>
 
     <!--ng-if is important here, it make the pager load after initialization-->
-    <section class="text-center">
-        @*<pagination boundary-links="true"
-                    rotate="false"
-                    max-size="8"
-                    total-items="Repository.Total"
-                    ng-model="Repository.CurrentPage"
-                    page="Repository.CurrentPage"
-                    class="pagination"
-                    previous-text="&lsaquo;"
-                    next-text="&rsaquo;"
-                    first-text="&laquo;"
-                    last-text="&raquo;"
-                    ng-change="pageChanged()"></pagination>*@
+    <section class="text-center">        
+        <pagination [Source]="Data">
+
+        </pagination>
     </section>
 </div>

@@ -1,15 +1,9 @@
 ﻿
-<div class="row">
-    <div class="col-md-9">
-        <posts>
-            @await Html.PartialAsync("_LoadingView")
-        </posts>
-    </div>
 
-    <div class="col-md-3">
 
-    </div>
-</div>
+<blog-root>
+    @await Html.PartialAsync("_LoadingView")
+</blog-root>
 
 @section styles{
     <link rel="stylesheet" href="~/css/blog.css" />
@@ -20,6 +14,8 @@
         System.config({
             transpiler: 'typescript',
             typescriptOptions: { emitDecoratorMetadata: true },
+            packages: { 'src': { defaultExtension: 'ts' } }
+            
         });
         System.import('/blogapp/blog.ts')
               .then(null, console.error.bind(console));

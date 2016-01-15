@@ -1,8 +1,5 @@
-﻿import {IPagedList} from './IPagedList.ts'
-
-export class PagedList<T> implements IPagedList{
-
-    Items: Array<T>;
+﻿
+export interface IPagedList {
     HasNextPage: boolean;
     HasPreviousPage: boolean;
     IsFirstPage: boolean;
@@ -12,9 +9,4 @@ export class PagedList<T> implements IPagedList{
     PageNumber: number;
     PageSize: number;
     TotalItemCount: number;
-
-    constructor() {
-        this.Items = [];
-    }
-
 }

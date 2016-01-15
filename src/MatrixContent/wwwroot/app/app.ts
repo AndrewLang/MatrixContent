@@ -16,9 +16,6 @@ import {Person} from './models/Person.ts';
 import {FriendService} from './services/FriendService.ts';
 
 
-
-
-
 @Component({
     selector: 'my-app'
 })
@@ -58,7 +55,7 @@ class AppComponent {
 
 bootstrap(AppComponent, [
     FriendService,
-    HTTP_PROVIDERS
+    HTTP_PROVIDERS,
     // These are dependencies of our App
 
     //FORM_PROVIDERS,
