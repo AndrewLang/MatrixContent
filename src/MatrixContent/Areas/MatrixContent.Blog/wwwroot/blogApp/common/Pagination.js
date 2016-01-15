@@ -14,6 +14,7 @@ var Pagination = (function () {
         this.ShowDirectionLinks = true;
         this.ShowBoundaryLinks = true;
         this.AutoHide = false;
+        this.Rotate = true;
         this.PreviousText = "Previous";
         this.NextText = "Next";
         this.FirstText = "First";
@@ -73,6 +74,9 @@ var Pagination = (function () {
     __decorate([
         core_1.Input()
     ], Pagination.prototype, "AutoHide");
+    __decorate([
+        core_1.Input()
+    ], Pagination.prototype, "Rotate");
     __decorate([
         core_1.Input()
     ], Pagination.prototype, "PreviousText");

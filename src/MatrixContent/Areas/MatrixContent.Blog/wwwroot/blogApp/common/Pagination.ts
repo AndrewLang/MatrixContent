@@ -47,10 +47,12 @@ export class Pagination {
     @Input() ShowDirectionLinks: boolean = true;
     @Input() ShowBoundaryLinks: boolean = true;
     @Input() AutoHide: boolean = false;
+    @Input() Rotate: boolean = true;
     @Input() PreviousText: string = "Previous";
     @Input() NextText: string = "Next";
     @Input() FirstText: string = "First";
     @Input() LastText: string = "Last";
+    
 
     Pages: IPageItem[] = [];
 
