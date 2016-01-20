@@ -9,26 +9,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var core_1 = require('angular2/core');
-var DataService_ts_1 = require('./DataService.ts');
-var PostService = (function () {
-    function PostService(dataService) {
-        this.dataService = dataService;
-    }
-    PostService.prototype.GetPosts = function (page, pageSize, callback) {
-        try {
-            var command = { Name: "Blog.GetPosts", Parameters: { Page: 1, PageSize: 10 } };
-            this.dataService.Post("/api/commands", command, function (response) {
-                callback(response.Data);
-            });
+define(["require", "exports", 'angular2/core', './DataService.ts'], function (require, exports, core_1, DataService_ts_1) {
+    var PostService = (function () {
+        function PostService(dataService) {
+            this.dataService = dataService;
         }
-        catch (ex) {
-            console.log(ex);
-        }
-    };
-    PostService = __decorate([
-        __param(0, core_1.Inject(DataService_ts_1.DataService))
-    ], PostService);
-    return PostService;
-})();
-exports.PostService = PostService;
+        PostService.prototype.GetPosts = function (page, pageSize, callback) {
+            try {
+                var command = { Name: "Blog.GetPosts", Parameters: { Page: 1, PageSize: 10 } };
+                this.dataService.Post("/api/commands", command, function (response) {
+                    callback(response.Data);
+                });
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+        };
+        PostService = __decorate([
+            __param(0, core_1.Inject(DataService_ts_1.DataService))
+        ], PostService);
+        return PostService;
+    })();
+    exports.PostService = PostService;
+});

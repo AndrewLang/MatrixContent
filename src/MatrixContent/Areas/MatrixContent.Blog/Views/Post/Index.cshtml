@@ -1,9 +1,9 @@
 ﻿
 
 
-<blog-root>
+<blog>
     @await Html.PartialAsync("_LoadingView")
-</blog-root>
+</blog>
 
 @section styles{
     <link rel="stylesheet" href="~/css/blog.css" />
@@ -14,10 +14,17 @@
         System.config({
             transpiler: 'typescript',
             typescriptOptions: { emitDecoratorMetadata: true },
-            packages: { 'src': { defaultExtension: 'ts' } }
-            
+            packages: {
+                "/blogapp": { defaultExtension: 'ts' },
+                "../../lib/ng2-bootstrap": {
+                    defaultExtension: "ts"
+                }
+            },
+            paths: {
+                "ng2-bootstrap/ng2-bootstrap": "../../lib/ng2-bootstrap/ng2-bootstrap"
+            }
         });
-        System.import('/blogapp/blog.ts')
+        System.import('/blogapp/blog')
               .then(null, console.error.bind(console));
     </script>
 }

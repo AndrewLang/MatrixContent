@@ -121,12 +121,23 @@
 
 
 @section scripts{
-<script>
+    <script>
         System.config({
             transpiler: 'typescript',
             typescriptOptions: { emitDecoratorMetadata: true },
+            packages: {
+                app: {
+                     defaultExtension: "ts"
+                },
+                "lib/ng2-bootstrap": {
+                    "defaultExtension": "ts"
+                }
+            },
+            paths: {
+                "ng2-bootstrap/ng2-bootstrap": "lib/ng2-bootstrap/ng2-bootstrap"
+            }
         });
-        System.import('app/app.ts')
+        System.import('app/main')
               .then(null, console.error.bind(console));
-</script>
+    </script>
 }

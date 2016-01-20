@@ -35,8 +35,17 @@
     </div>
 
     <!--ng-if is important here, it make the pager load after initialization-->
-    <section class="text-center">        
-        <pagination [Source]="Data">
+    <section class="text-center">
+        <pagination [totalItems]="Data.TotalItemCount"
+                    [maxSize]="MaxSize"
+                    [(ngModel)]="Data.PageNumber"
+                    [boundaryLinks]="ShowBoundaryLinks"
+                    previous-text="&lsaquo;"
+                    next-text="&rsaquo;"
+                    first-text="&laquo;"
+                    last-text="&raquo;"
+                    (page-changed)="OnPageChanged($event)"
+                    class="pagination-sm">
 
         </pagination>
     </section>

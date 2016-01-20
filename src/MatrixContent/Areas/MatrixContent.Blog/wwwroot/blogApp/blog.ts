@@ -19,11 +19,11 @@ import {DataService} from './services/DataService.ts';
 import {PostsPagedList} from './components/PostsPagedList.ts';
 
 @Component({
-    selector: 'blog-root', 
+    selector: 'blog', 
     templateUrl: "/blog/view/bloghome/",       
     directives: [PostsPagedList]
 })
-export class AppComponent {
+export class BlogComponent {
     
     constructor() {
         
@@ -31,7 +31,7 @@ export class AppComponent {
 }
 
 
-bootstrap(AppComponent, [
+bootstrap(BlogComponent, [
     HTTP_PROVIDERS,
     ErrorHandlingService,
     DataService,

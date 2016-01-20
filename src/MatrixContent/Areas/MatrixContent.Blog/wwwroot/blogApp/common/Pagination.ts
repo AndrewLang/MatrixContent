@@ -64,14 +64,12 @@ export class Pagination {
         console.log("on changes");
         console.log(this.Source);
     }
+
     ngAfterContentInit() {
         console.log("After conent init ");
         console.log(this.Source);
     }
-    //ngAfterContentChecked () {
-    //    console.log("After conent checked ");
-    //    console.log(this.Source);
-    //}
+    
     ngAfterContentChecked() {
         if (this.Source != null && this.Source.PageCount > 0 && this.Pages.length == 0) {
             console.log("After conent checked ");
@@ -95,6 +93,9 @@ export class Pagination {
 
         if (source.IsLastPage)
             startIndex = source.PageCount - this.MaxSize;
+
+        if (startIndex < 1)
+            startIndex = 1;
 
         while (startIndex <= this.MaxSize) {
             items.push({ Label: startIndex, Value: startIndex });
