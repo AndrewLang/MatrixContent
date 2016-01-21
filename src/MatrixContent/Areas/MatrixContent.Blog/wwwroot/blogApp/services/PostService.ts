@@ -13,7 +13,7 @@ export class PostService {
 
     GetPosts(page: number, pageSize: number, callback: (response: any) => {}): void {
         try {
-            var command = { Name: "Blog.GetPosts", Parameters: { Page: 1, PageSize: 10 } };
+            var command = { Name: "Blog.GetPosts", Parameters: { Page: page, PageSize: 10 } };
 
             this.dataService.Post("/api/commands", command, response=> {
                 callback(response.Data);

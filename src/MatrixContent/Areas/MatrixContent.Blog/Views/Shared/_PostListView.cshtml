@@ -38,13 +38,13 @@
     <section class="text-center">
         <pagination [totalItems]="Data.TotalItemCount"
                     [maxSize]="MaxSize"
-                    [(ngModel)]="Data.PageNumber"
+                    [(ngModel)]="CurrentPage"
                     [boundaryLinks]="ShowBoundaryLinks"
                     previous-text="&lsaquo;"
                     next-text="&rsaquo;"
                     first-text="&laquo;"
                     last-text="&raquo;"
-                    (page-changed)="OnPageChanged($event)"
+                    (pageChanged)="pageChanged($event)"
                     class="pagination-sm">
 
         </pagination>

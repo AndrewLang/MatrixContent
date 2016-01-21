@@ -14,19 +14,29 @@ export class PostsPagedList {
     Data: PagedList<Post> = new PagedList<Post>();
     postService: PostService;
     MaxSize: number = 5;
-    ShowBoundaryLinks: boolean=true;
+    CurrentPage: number = 1;
+    ShowBoundaryLinks: boolean = true;
+    PageSize: number = 10;
 
     constructor( @Inject(PostService) postService: PostService) {
         this.postService = postService;
 
-        postService.GetPosts(1, 10, response=> {
+        this.LoadPosts();
+    }
+
+    LoadPosts(): void {
+        console.log("Load posts: page " + this.CurrentPage);
+        this.postService.GetPosts(this.CurrentPage, this.PageSize, response=> {
             this.Data = response;
             console.log(this.Data);
         });
     }
 
-    OnPageChanged(event: any): void {
+    private pageChanged(event: any): void {
         console.log('Page changed to: ' + event.page);
-        console.log('Number items per page: ' + event.itemsPerPage);
+        if (this.CurrentPage != event.page) {
+            this.CurrentPage = event.page;
+            this.LoadPosts();
+        }
     }
 }
