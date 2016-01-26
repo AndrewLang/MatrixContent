@@ -1,12 +1,9 @@
-﻿<div class="row">
-    <div class="col-md-9">
-        <posts>
-            @await Html.PartialAsync("_LoadingView")
-        </posts>
-
-        <pager>
-
-        </pager>
+﻿
+<div class="row">
+    <div class="col-md-9">     
+        <router-outlet>
+            
+        </router-outlet>
     </div>
 
     <div class="col-md-3">

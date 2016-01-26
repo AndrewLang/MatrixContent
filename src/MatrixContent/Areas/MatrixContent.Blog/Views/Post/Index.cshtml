@@ -5,6 +5,7 @@
     @await Html.PartialAsync("_LoadingView")
 </blog>
 
+
 @section styles{
     <link rel="stylesheet" href="~/css/blog.css" />
 }
@@ -24,7 +25,7 @@
                 "ng2-bootstrap/ng2-bootstrap": "../../lib/ng2-bootstrap/ng2-bootstrap"
             }
         });
-        System.import('/blogapp/blog')
+        System.import('/blogapp/blogBoot')
               .then(null, console.error.bind(console));
     </script>
 }

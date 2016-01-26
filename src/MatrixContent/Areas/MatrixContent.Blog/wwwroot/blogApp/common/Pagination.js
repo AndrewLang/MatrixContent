@@ -1,10 +1,8 @@
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
-        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
-        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
-    }
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('angular2/core');
 var common_1 = require('angular2/common');
@@ -58,35 +56,35 @@ var Pagination = (function () {
     };
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "Source");
+    ], Pagination.prototype, "Source", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "MaxSize");
+    ], Pagination.prototype, "MaxSize", void 0);
     __decorate([
         //Max page item to display
         core_1.Input()
-    ], Pagination.prototype, "ShowDirectionLinks");
+    ], Pagination.prototype, "ShowDirectionLinks", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "ShowBoundaryLinks");
+    ], Pagination.prototype, "ShowBoundaryLinks", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "AutoHide");
+    ], Pagination.prototype, "AutoHide", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "Rotate");
+    ], Pagination.prototype, "Rotate", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "PreviousText");
+    ], Pagination.prototype, "PreviousText", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "NextText");
+    ], Pagination.prototype, "NextText", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "FirstText");
+    ], Pagination.prototype, "FirstText", void 0);
     __decorate([
         core_1.Input()
-    ], Pagination.prototype, "LastText");
+    ], Pagination.prototype, "LastText", void 0);
     Pagination = __decorate([
         core_1.Component({
             selector: 'pagination',

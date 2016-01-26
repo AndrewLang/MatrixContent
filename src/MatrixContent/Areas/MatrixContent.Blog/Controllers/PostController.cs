@@ -28,8 +28,11 @@ namespace MatrixContent.Blog.Controllers
         /// Indexes this instance.
         /// </summary>
         /// <returns></returns>
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            if(page == null)
+                page = 1;
+
             return View();
         }        
     }

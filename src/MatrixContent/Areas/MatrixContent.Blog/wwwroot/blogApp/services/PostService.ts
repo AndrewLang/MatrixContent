@@ -1,13 +1,14 @@
-﻿import {Inject} from 'angular2/core';
+﻿import {Injectable} from 'angular2/core';
 
-import {Post} from '../models/Post.ts';
-import {DataService} from './DataService.ts'
+import {Post} from '../models/Post';
+import {DataService} from './DataService'
 
+@Injectable()
 export class PostService {
 
     dataService: DataService;
 
-    constructor( @Inject(DataService) dataService: DataService) {
+    constructor( dataService: DataService) {
         this.dataService = dataService;
     }
 

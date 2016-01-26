@@ -1,16 +1,16 @@
-﻿import {Inject} from 'angular2/core';
+﻿import {Injectable} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
 import 'rxjs/Rx';
-import {ErrorHandlingService} from './ErrorHandlingService.ts'
+import {ErrorHandlingService} from './ErrorHandlingService'
 
+@Injectable()
 export class DataService {
 
     errorHandlingService: ErrorHandlingService;
     http: Http;
     headers: Headers;
 
-    constructor( @Inject(Http) http: Http,
-                 @Inject(ErrorHandlingService) errorHandlingService: ErrorHandlingService) {
+    constructor(http: Http, errorHandlingService: ErrorHandlingService) {
 
         this.http = http;
         this.errorHandlingService = errorHandlingService;
@@ -21,7 +21,7 @@ export class DataService {
     }
 
     // Post
-    Post(url: string, data: any, callback: (response: any) => { }) {
+    Post(url: string, data: any, callback: (response: any) => {}) {
 
         var body = JSON.stringify(data);
 
