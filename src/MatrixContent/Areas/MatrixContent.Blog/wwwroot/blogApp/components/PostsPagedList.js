@@ -10,17 +10,24 @@ var DataService_1 = require('../services/DataService');
 var PostService_ts_1 = require('../services/PostService.ts');
 var PagedList_ts_1 = require('../common/PagedList.ts');
 var PostsPagedList = (function () {
-    function PostsPagedList(postService, mRouter) {
+    function PostsPagedList(postService, mRouter, mRouteParams) {
+        this.postService = postService;
         this.mRouter = mRouter;
+        this.mRouteParams = mRouteParams;
         this.Data = new PagedList_ts_1.PagedList();
         this.MaxSize = 5;
         this.CurrentPage = 1;
         this.ShowBoundaryLinks = true;
         this.PageSize = 10;
         console.log("constructor of posts paged list");
-        this.postService = postService;
-        this.LoadPosts();
     }
+    PostsPagedList.prototype.ngOnInit = function () {
+        var page = this.mRouteParams.get('page');
+        if (page)
+            this.CurrentPage = page;
+        console.log("OnInit load page " + page);
+        this.LoadPosts();
+    };
     PostsPagedList.prototype.LoadPosts = function () {
         var _this = this;
         console.log("Load posts: page " + this.CurrentPage);
@@ -31,7 +38,7 @@ var PostsPagedList = (function () {
     };
     PostsPagedList.prototype.pageChanged = function (event) {
         if (this.CurrentPage != event.page) {
-            console.log('Page changed to: ' + event.page);
+            console.log('Current Page ' + this.CurrentPage + ' changed to: ' + event.page);
             //    this.CurrentPage = event.page;
             //    this.LoadPosts();
             this.mRouter.navigate(['PagedPosts', { page: event.page }]);
