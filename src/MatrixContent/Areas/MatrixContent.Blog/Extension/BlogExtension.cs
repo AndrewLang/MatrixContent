@@ -43,10 +43,10 @@ namespace MatrixContent.Blog
               template: "{area}/posts",
               defaults: new { area = "blog", controller = "Post", action = "Index" });
 
-            //routes.MapRoute(
-            //  name: "blogPagedPosts",
-            //  template: "{area}/posts/page/{page}",
-            //  defaults: new { area = "blog",controller = "Post",action = "Index" , page = 1});
+            routes.MapRoute(
+              name: "blogPagedPosts",
+              template: "{area}/posts/page/{page}",
+              defaults: new { area = "blog", controller = "Post", action = "Index", page = 1 });
 
             routes.MapRoute(
                name: "blogView",

@@ -12,7 +12,7 @@ import {PostsPagedListComponent} from '../components/PostsPagedListComponent';
 
 
 @Component({
-    //selector: 'blog',
+    selector: 'blog',
     templateUrl: "/blog/view/bloghome/",
     directives: [PostsPagedListComponent, ROUTER_DIRECTIVES],
     providers: [DataService, PostService, ErrorHandlingService]

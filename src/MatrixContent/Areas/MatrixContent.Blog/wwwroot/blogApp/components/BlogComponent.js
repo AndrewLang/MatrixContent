@@ -12,7 +12,7 @@ var router_1 = require('angular2/router');
 var ErrorHandlingService_1 = require('../services/ErrorHandlingService');
 var DataService_1 = require('../services/DataService');
 var PostService_1 = require('../services/PostService');
-var PostsPagedList_1 = require('../components/PostsPagedList');
+var PostsPagedListComponent_1 = require('../components/PostsPagedListComponent');
 var BlogComponent = (function () {
     function BlogComponent() {
     }
@@ -20,12 +20,12 @@ var BlogComponent = (function () {
         core_1.Component({
             selector: 'blog',
             templateUrl: "/blog/view/bloghome/",
-            directives: [PostsPagedList_1.PostsPagedList, router_1.ROUTER_DIRECTIVES],
+            directives: [PostsPagedListComponent_1.PostsPagedListComponent, router_1.ROUTER_DIRECTIVES],
             providers: [DataService_1.DataService, PostService_1.PostService, ErrorHandlingService_1.ErrorHandlingService]
         }),
         router_1.RouteConfig([
-            { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedList_1.PostsPagedList },
-            { path: '/page/:page', name: 'PagedPosts', component: PostsPagedList_1.PostsPagedList }
+            { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent_1.PostsPagedListComponent },
+            { path: '/page/:page', name: 'PagedPosts', component: PostsPagedListComponent_1.PostsPagedListComponent }
         ])
     ], BlogComponent);
     return BlogComponent;

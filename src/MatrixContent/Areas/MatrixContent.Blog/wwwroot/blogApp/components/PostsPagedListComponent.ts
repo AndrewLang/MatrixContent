@@ -5,16 +5,16 @@ import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {DataService} from '../services/DataService';
 import {PostService} from '../services/PostService';
 import {PagedList} from '../common/PagedList';
-import{ Post} from '../models/post';
+import {Post} from '../models/post';
 
 @Component({
-    //selector: 'posts',
+    selector: 'posts',
     templateUrl: "/blog/view/postlist/",
     directives: [PAGINATION_DIRECTIVES],
     providers: [PostService, DataService]
 })
 @Injectable()
-export class PostsPagedList implements OnInit {
+export class PostsPagedListComponent implements OnInit {
     Data: PagedList<Post> = new PagedList<Post>();
     MaxSize: number = 5;
     CurrentPage: number = 1;
@@ -22,8 +22,8 @@ export class PostsPagedList implements OnInit {
     PageSize: number = 10;
 
     constructor(private postService: PostService,
-        private mRouter: Router,
-        private mRouteParams: RouteParams) {
+                private mRouter: Router,
+                private mRouteParams: RouteParams) {
 
         console.log("constructor of posts paged list");
     }
@@ -44,12 +44,12 @@ export class PostsPagedList implements OnInit {
         });
     }
 
-    private pageChanged(event: any): void {
-        
+    private onPageChanged(event: any): void {
+        console.log("Enter page changed " + event.page);
         if (this.CurrentPage != event.page) {
             console.log('Current Page ' + this.CurrentPage + ' changed to: ' + event.page);
-            //    this.CurrentPage = event.page;
-            //    this.LoadPosts();
+                this.CurrentPage = event.page;
+                //this.LoadPosts();
             this.mRouter.navigate(['PagedPosts', { page: event.page }]);
         }
     }
