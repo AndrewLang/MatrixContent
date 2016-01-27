@@ -1,4 +1,4 @@
-﻿import {Inject, Injectable, Component, View} from 'angular2/core';
+﻿import {Inject, Injectable, Component} from 'angular2/core';
 import {Router, RouteParams} from 'angular2/router';
 import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
@@ -7,13 +7,13 @@ import {PostService} from '../services/PostService.ts';
 import {PagedList} from '../common/PagedList.ts';
 
 @Component({
-    selector: 'posts',
+    //selector: 'posts',
     templateUrl: "/blog/view/postlist/",
     directives: [PAGINATION_DIRECTIVES],
     providers: [PostService, DataService]
 })
 @Injectable()
-export class PostsPagedList {
+export class PostsPagedListComponent {
 
     Data: PagedList<Post> = new PagedList<Post>();
     postService: PostService;
