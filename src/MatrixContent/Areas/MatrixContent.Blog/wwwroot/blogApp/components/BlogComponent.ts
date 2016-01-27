@@ -9,6 +9,7 @@ import {ErrorHandlingService} from '../services/ErrorHandlingService';
 import {DataService} from '../services/DataService';
 import {PostService} from '../services/PostService';
 import {PostsPagedListComponent} from '../components/PostsPagedListComponent';
+import {PostListComponent} from './PostListComponent';
 
 
 @Component({
@@ -18,8 +19,8 @@ import {PostsPagedListComponent} from '../components/PostsPagedListComponent';
     providers: [DataService, PostService, ErrorHandlingService]
 })
 @RouteConfig([
-    { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent },
-    { path: '/page/:page', name: 'PagedPosts', component: PostsPagedListComponent }
+    { path: '/list/...', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent }
+    
 ])
 export class BlogComponent { }
 

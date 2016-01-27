@@ -24,8 +24,7 @@ var BlogComponent = (function () {
             providers: [DataService_1.DataService, PostService_1.PostService, ErrorHandlingService_1.ErrorHandlingService]
         }),
         router_1.RouteConfig([
-            { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent_1.PostsPagedListComponent },
-            { path: '/page/:page', name: 'PagedPosts', component: PostsPagedListComponent_1.PostsPagedListComponent }
+            { path: '/list/...', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent_1.PostsPagedListComponent }
         ])
     ], BlogComponent);
     return BlogComponent;

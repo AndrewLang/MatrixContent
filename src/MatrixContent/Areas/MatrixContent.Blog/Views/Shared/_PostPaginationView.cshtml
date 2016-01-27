@@ -1,0 +1,16 @@
+﻿
+<!--ng-if is important here, it make the pager load after initialization-->
+<section class="text-center" *ngIf="DataContext.Data">
+    <pagination [totalItems]="DataContext.Data.TotalItemCount"
+                [maxSize]="DataContext.MaxSize"
+                [(ngModel)]="DataContext.CurrentPage"
+                [boundaryLinks]="DataContext.ShowBoundaryLinks"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;"
+                (pageChanged)="onPageChanged($event)"
+                class="pagination-sm">
+
+    </pagination>
+</section>

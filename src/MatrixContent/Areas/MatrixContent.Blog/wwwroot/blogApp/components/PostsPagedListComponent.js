@@ -5,10 +5,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('angular2/core');
+var router_1 = require('angular2/router');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var DataService_1 = require('../services/DataService');
 var PostService_1 = require('../services/PostService');
 var PagedList_1 = require('../common/PagedList');
+var PostListComponent_1 = require('./PostListComponent');
 var PostsPagedListComponent = (function () {
     function PostsPagedListComponent(postService, mRouter, mRouteParams) {
         this.postService = postService;
@@ -36,6 +38,9 @@ var PostsPagedListComponent = (function () {
             console.log(_this.Data);
         });
     };
+    PostsPagedListComponent.prototype.dataLoaded = function (event) {
+        console.log("data loaded");
+    };
     PostsPagedListComponent.prototype.onPageChanged = function (event) {
         console.log("Enter page changed " + event.page);
         if (this.CurrentPage != event.page) {
@@ -47,11 +52,15 @@ var PostsPagedListComponent = (function () {
     };
     PostsPagedListComponent = __decorate([
         core_1.Component({
-            selector: 'posts',
-            templateUrl: "/blog/view/postlist/",
-            directives: [ng2_bootstrap_1.PAGINATION_DIRECTIVES],
+            selector: 'paged-posts',
+            templateUrl: "/blog/view/postpagedlist/",
+            directives: [ng2_bootstrap_1.PAGINATION_DIRECTIVES, router_1.RouterOutlet],
             providers: [PostService_1.PostService, DataService_1.DataService]
         }),
+        router_1.RouteConfig([
+            { path: '/', name: 'HomePostsPage', component: PostListComponent_1.PostListComponent, useAsDefault: true },
+            { path: '/page/:page', name: 'PagedPosts', component: PostListComponent_1.PostListComponent }
+        ]),
         core_1.Injectable()
     ], PostsPagedListComponent);
     return PostsPagedListComponent;

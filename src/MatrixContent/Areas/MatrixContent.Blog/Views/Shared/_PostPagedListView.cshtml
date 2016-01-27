@@ -1,0 +1,27 @@
+﻿
+<div>
+    <paged-posts>
+        @*<posts-list ></posts-list>
+        <posts-pagination ></posts-pagination>*@
+
+        <router-outlet></router-outlet>
+
+        <!--ng-if is important here, it make the pager load after initialization-->
+        <section class="text-center">
+            <pagination [totalItems]="Data.TotalItemCount"
+                        [maxSize]="MaxSize"
+                        [(ngModel)]="CurrentPage"
+                        [boundaryLinks]="ShowBoundaryLinks"
+                        previous-text="&lsaquo;"
+                        next-text="&rsaquo;"
+                        first-text="&laquo;"
+                        last-text="&raquo;"
+                        (pageChanged)="onPageChanged($event)"
+                        class="pagination-sm">
+
+            </pagination>
+        </section>
+    </paged-posts>
+
+
+</div>
