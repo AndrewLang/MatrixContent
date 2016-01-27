@@ -8,18 +8,18 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {ErrorHandlingService} from '../services/ErrorHandlingService';
 import {DataService} from '../services/DataService';
 import {PostService} from '../services/PostService';
-import {PostsPagedList} from '../components/PostsPagedList';
-import {PagedPostComponent} from '../components/PagedPostComponent';
+import {PostsPagedListComponent} from '../components/PostsPagedListComponent';
+
 
 @Component({
-    selector: 'blog',
+    //selector: 'blog',
     templateUrl: "/blog/view/bloghome/",
-    directives: [PostsPagedList, ROUTER_DIRECTIVES],
+    directives: [PostsPagedListComponent, ROUTER_DIRECTIVES],
     providers: [DataService, PostService, ErrorHandlingService]
 })
 @RouteConfig([
-    { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedList },
-    { path: '/page/:page', name: 'PagedPosts', component: PostsPagedList }
+    { path: '/', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent },
+    { path: '/page/:page', name: 'PagedPosts', component: PostsPagedListComponent }
 ])
 export class BlogComponent { }
 
