@@ -3,8 +3,9 @@ import {Router, RouteParams} from 'angular2/router';
 import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {DataService} from '../services/DataService';
-import {PostService} from '../services/PostService.ts';
-import {PagedList} from '../common/PagedList.ts';
+import {PostService} from '../services/PostService';
+import {PagedList} from '../common/PagedList';
+import{ Post} from '../models/post';
 
 @Component({
     //selector: 'posts',
