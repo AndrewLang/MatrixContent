@@ -7,57 +7,45 @@ import {PostService} from '../services/PostService';
 import {PagedList} from '../common/PagedList';
 import {Post} from '../models/post';
 import {PostListComponent} from './PostListComponent';
+import {PaginationDataContext} from '../common/PaginationDataContext';
 
 @Component({
     selector: 'paged-posts',
     templateUrl: "/blog/view/postpagedlist/",
     directives: [PAGINATION_DIRECTIVES, RouterOutlet],
-    providers: [PostService, DataService]
+    providers: [PostService, DataService, PaginationDataContext]
 })
 @RouteConfig([
         { path: '/', name: 'HomePostsPage', component: PostListComponent, useAsDefault: true },
         { path: '/page/:page', name: 'PagedPosts', component: PostListComponent }
 ])
 @Injectable()
-export class PostsPagedListComponent implements OnInit {
-    Data: PagedList<Post> = new PagedList<Post>();
-    MaxSize: number = 5;
-    CurrentPage: number = 1;
-    ShowBoundaryLinks: boolean = true;
-    PageSize: number = 10;
+export class PostsPagedListComponent implements OnInit {  
 
-    constructor(private postService: PostService,
-        private mRouter: Router,
-        private mRouteParams: RouteParams) {
+    constructor(
+        private DataContext:PaginationDataContext,
+        private postService: PostService,
+        private mRouter: Router) {
 
-        console.log("constructor of posts paged list");
     }
 
-    ngOnInit() {
-        let page = this.mRouteParams.get('page');
-        if (page)
-            this.CurrentPage = page;
-        console.log("OnInit load page " + page);
+    ngOnInit() {        
         this.LoadPosts();
     }
 
     LoadPosts(): void {
-        console.log("Load posts: page " + this.CurrentPage);
-        this.postService.GetPosts(this.CurrentPage, this.PageSize, response=> {
-            this.Data = response;
-            console.log(this.Data);
+        this.postService.GetPosts(this.DataContext.CurrentPage, this.DataContext.PageSize, response=> {
+            this.DataContext.Data = response;
         });
     }
-    private dataLoaded(event: any): void {
-        console.log("data loaded");
-    }
+    
     private onPageChanged(event: any): void {
-        console.log("Enter page changed " + event.page);
-        if (this.CurrentPage != event.page) {
-            console.log('Current Page ' + this.CurrentPage + ' changed to: ' + event.page);
-            this.CurrentPage = event.page;
+        if (this.DataContext.CurrentPage != event.page) {
+            this.DataContext.CurrentPage = event.page;
             //this.LoadPosts();
             this.mRouter.navigate(['PagedPosts', { page: event.page }]);
+            //console.log(this.DataContext);
+            
         }
     }
 }

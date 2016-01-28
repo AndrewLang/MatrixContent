@@ -49,17 +49,11 @@ namespace MatrixContent.Framework
                 PageCount = 0;
 
             if(index < 0)
-#if !SILVERLIGHT
                 throw new ArgumentOutOfRangeException("index",index,"PageIndex cannot be below 0.");
-#else
-                throw new ArgumentOutOfRangeException( "index", "PageIndex cannot be below 0." );
-#endif
+
             if(pageSize < 1)
-#if !SILVERLIGHT
                 throw new ArgumentOutOfRangeException("pageSize",pageSize,"PageSize cannot be less than 1.");
-#else
-                throw new ArgumentOutOfRangeException( "pageSize", "PageSize cannot be less than 1." );
-#endif
+
 
             // add items to internal list
             if(TotalItemCount > 0)

@@ -21,7 +21,7 @@ export class DataService {
     }
 
     // Post
-    Post(url: string, data: any, callback: (response: any) => {}) {
+    Post(url: string, data: any, callback: (response: any) => void): void {
 
         var body = JSON.stringify(data);
 

@@ -1,27 +1,24 @@
 ﻿
 <div>
     <paged-posts>
-        @*<posts-list ></posts-list>
-        <posts-pagination ></posts-pagination>*@
 
         <router-outlet></router-outlet>
 
         <!--ng-if is important here, it make the pager load after initialization-->
-        <section class="text-center">
-            <pagination [totalItems]="Data.TotalItemCount"
-                        [maxSize]="MaxSize"
-                        [(ngModel)]="CurrentPage"
-                        [boundaryLinks]="ShowBoundaryLinks"
+
+        <section class="text-center" *ngIf="DataContext.Data">
+            <pagination [totalItems]="DataContext.Data.TotalItemCount"
+                        [maxSize]="DataContext.MaxSize"
+                        [boundaryLinks]="DataContext.ShowBoundaryLinks"
                         previous-text="&lsaquo;"
                         next-text="&rsaquo;"
                         first-text="&laquo;"
                         last-text="&raquo;"
                         (pageChanged)="onPageChanged($event)"
+                        [(ngModel)]="DataContext.CurrentPage"
                         class="pagination-sm">
 
             </pagination>
         </section>
     </paged-posts>
-
-
 </div>

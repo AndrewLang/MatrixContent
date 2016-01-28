@@ -13,7 +13,6 @@ var PostPaginationComponent = (function () {
         this.DataContext = DataContext;
         this.mRouter = mRouter;
         this.mRouteParams = mRouteParams;
-        console.log("constructor of post pagination component");
     }
     PostPaginationComponent.prototype.onPageChanged = function (event) {
         console.log("Enter page changed " + event.page);

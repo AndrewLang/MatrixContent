@@ -22,7 +22,7 @@ export class PostPaginationComponent {
         private mRouter: Router,
         private mRouteParams: RouteParams)
     {
-        console.log("constructor of post pagination component");
+        
     }
 
     private onPageChanged(event: any): void {

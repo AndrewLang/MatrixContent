@@ -8,11 +8,11 @@ export class PostService {
 
     dataService: DataService;
 
-    constructor( dataService: DataService) {
+    constructor(dataService: DataService) {
         this.dataService = dataService;
     }
 
-    GetPosts(page: number, pageSize: number, callback: (response: any) => {}): void {
+    GetPosts(page: number, pageSize: number, callback: (response: any) => void): void {
         try {
             var command = { Name: "Blog.GetPosts", Parameters: { Page: page, PageSize: 10 } };
 

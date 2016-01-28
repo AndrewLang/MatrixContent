@@ -19,7 +19,8 @@ import {PostListComponent} from './PostListComponent';
     providers: [DataService, PostService, ErrorHandlingService]
 })
 @RouteConfig([
-    { path: '/list/...', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent }
+        { path: '/list/...', name: 'DefaultPagedPosts', useAsDefault: true, component: PostsPagedListComponent },
+        //{ path: '/page/:page', name: 'PagedPosts', component: PostsPagedListComponent }
     
 ])
 export class BlogComponent { }

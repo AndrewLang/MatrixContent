@@ -130,7 +130,7 @@ export class Pagination implements ControlValueAccessor, OnInit, IPaginationConf
         this._totalPages = v;
         this.numPages.emit(v);
         if (this.inited) {
-            console.log("Set total pages cause selected page changed " + this.page + " inited: " + this.inited);
+            //console.log("Pagination-- Set total pages cause selected page changed " + this.page + " inited: " + this.inited);
             this.selectPage(this.page);
         }
     }
@@ -139,13 +139,17 @@ export class Pagination implements ControlValueAccessor, OnInit, IPaginationConf
         if (this._page == value)
             return;
 
-        this._page = (value > this.totalPages) ? this.totalPages : (value || 1);
+        let temp = (value > this.totalPages) ? this.totalPages : (value || 1);
 
-        console.log("Set page to " + this._page + " trigger pageChanged event.");
-        this.pageChanged.emit({
-            page: this._page,
-            itemsPerPage: this.itemsPerPage
-        });
+        if (this.page != temp) {
+            this._page = temp;
+
+            //console.log("Pagination-- Set page to " + this._page + " trigger pageChanged event.");
+            this.pageChanged.emit({
+                page: this._page,
+                itemsPerPage: this.itemsPerPage
+            });
+        }
     }
 
     public get page() {
@@ -174,18 +178,23 @@ export class Pagination implements ControlValueAccessor, OnInit, IPaginationConf
         this.totalPages = this.calculateTotalPages();
         // this class
         this.pages = this.getPages(this.page, this.totalPages);
-        console.log("Pagination init set page to " + this.cd.value);
+        
+        //console.log("Pagination-- init set page to " + this.cd.value + " Total pages: " + this.totalPages);
+        //console.log(this.cd);
         this.page = this.cd.value;
         this.inited = true;
     }
 
     writeValue(value: number) {
-        console.log("write value method set page to " + value);
-        this.page = value;
-        this.pages = this.getPages(this.page, this.totalPages);
+        //console.log("Pagination-- write value method set page to " + value + " Initialized: " + this.inited);
+        if (value) {
+            this.page = value;
+            this.pages = this.getPages(this.page, this.totalPages);
+        }
     }
 
     private selectPage(page: number, event?: MouseEvent) {
+        //console.log("Pagination-- Enter select page");
         if (event) {
             event.preventDefault();
         }
@@ -195,6 +204,7 @@ export class Pagination implements ControlValueAccessor, OnInit, IPaginationConf
                 let target: any = event.target;
                 target.blur();
             }
+            //console.log("Pagination-- SelectPage method :" + page);
             this.writeValue(page);
             this.cd.viewToModelUpdate(this.page);
         }
