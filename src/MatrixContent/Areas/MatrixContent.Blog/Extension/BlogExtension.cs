@@ -45,7 +45,7 @@ namespace MatrixContent.Blog
 
             routes.MapRoute(
               name: "blogPagedPosts",
-              template: "{area}/posts/page/{page}",
+              template: "{area}/posts/list/page/{page}",
               defaults: new { area = "blog", controller = "Post", action = "Index", page = 1 });
 
             routes.MapRoute(

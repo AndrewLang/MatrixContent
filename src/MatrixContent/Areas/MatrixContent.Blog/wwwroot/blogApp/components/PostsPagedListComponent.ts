@@ -4,8 +4,6 @@ import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {DataService} from '../services/DataService';
 import {PostService} from '../services/PostService';
-import {PagedList} from '../common/PagedList';
-import {Post} from '../models/post';
 import {PostListComponent} from './PostListComponent';
 import {PaginationDataContext} from '../common/PaginationDataContext';
 
